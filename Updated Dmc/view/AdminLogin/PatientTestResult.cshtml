@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "PatientTestResult";
+}
+
+<div class="center">
+    @using (Html.BeginForm())
+    {
+
+        <table style="margin-top:50px;color:darkblue">
+            <thead>
+                <tr>
+                    <th><h4>List of Patient Ids</h4></th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                string id = (item.PatientId).ToString();
+                <tbody>
+                    <tr>
+                        <td><h5>@Html.ActionLink(id, "UpdateTestResults", "AdminHome", new { id = item.PatientId }, null)</h5></td>
+
+                    </tr>
+                </tbody>
+            }
+        </table>
+
+    }
+    <br />
+    <h5 style="color:orangered"> *Click the Above Patient Id To Update Test Result</h5>
+    <br />
+
+    <div>
+        <button class="btn btn-primary" onclick="location.href='@Url.Action("AdminHome","AdminLogin")'">Back</button>
+    </div>
+    </div>

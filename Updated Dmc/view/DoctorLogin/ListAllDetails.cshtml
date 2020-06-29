@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewBag.Title = "ListAllDetails";
+}
+<html>
+<head>
+    <style>
+        .listColor{
+            color:darkblue;
+        }
+        .listColorValue {
+            color: #f4511e;
+        }
+        table,th,td{
+            border:1px solid black;
+            padding:5px;
+        }
+        th{
+            text-align:center;
+        }
+
+    </style>
+</head>
+<body>
+
+
+
+
+    <div class="center">
+
+        @using (Html.BeginForm())
+        {
+            <table style="margin-top:10px;">
+                <thead>
+                    <tr>
+                        <th colspan="2"><h3>Detailed Test Report </h3></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td><h4>Test Id:</h4> </td>
+                            <td><h4><span class="listColor">@item.TestId</span></h4></td>
+                        </tr>
+                        <tr>
+                            <td><h4>Appointment Id: </h4> </td>
+                            <td><h4> <span class="listColor">@item.AppointmentId</span></h4></td>
+                        </tr>
+                        <tr>
+                            <td><h4>Patient Id:</h4> </td>
+                            <td><h4> <span class="listColor">@item.PatientId</span></h4></td>
+                        </tr>
+                        <tr>
+                            <td><h4>Doctor Id: </h4> </td>
+                            <td><h4><span class="listColor">@item.DoctorId</span></h4></td>
+                        </tr>
+                        <tr>
+                            <td><h4>Date and Time:</h4> </td>
+                            <td><h4> <span class="listColor">@item.Date</span></h4></td>
+                        </tr>
+                        <tr>
+                            <td><h4>Medicare Service: </h4> </td>
+                            <td><h4> <span class="listColor">@item.MedicareService</span></h4></td>
+                        </tr>
+                        <tr>
+                            <td><h4>Tested Value:</h4> </td>
+                            <td><h4> <span class="listColorValue">@item.TestValue</span></h4></td>
+                        </tr>
+                        <tr>
+                            <td><h4>Base Value:</h4> </td>
+                            <td><h4><span class="listColorValue">@item.NormalValue</span></h4></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <br />
+            <br />
+        }
+
+    </div>
+    <button class="btn btn-primary btn-danger" style="margin-top:60px;margin-left:95%;margin-bottom:0px;" onclick="location.href='@Url.Action("ListPatientIds", "DoctorLogin")'">Back</button>
+</body>
+</html>

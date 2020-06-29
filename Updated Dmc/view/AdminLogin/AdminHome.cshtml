@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "AdminHome";
+}
+<html>
+<head>
+    @Styles.Render("~/Content/StyleSheet.css")
+    <style>
+        body{
+            background-color:#E3afbc;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="alert alert-info">
+        <center><strong><q>I can't change the direction of the wind, but I can adjust my sails to always reach my destination. </q></strong></center>
+    </div>
+    <h2 style="color:darkblue;text-align:center;">Welcome Admin</h2>
+    @using (Html.BeginForm())
+    {
+        if (Session["UserId"] != null)
+        {
+            <h5 style="color:green;text-align:center">@ViewBag.ValidationMessage</h5>
+
+        }
+    }
+
+<div class="btn-group-vertical" style="width:400px;padding-top:30px;">
+    <a href='@Url.Action("AgentRegistrationForm", "AgentRegistration")' class="btn btn-primary">Create Agent</a><br />
+    <a href='@Url.Action("PatientDetails", "PatientDetails")' class="btn btn-primary">Patients Approve / Reject </a><br />
+    <a href='@Url.Action("DoctorDetails", "DoctorDetails")' class="btn btn-primary">Doctors Approve / Reject</a><br />
+    <a href='@Url.Action("AgentDetails", "AgentDetails")' class="btn btn-primary">Agents Approve / Reject</a><br />
+    <a href='@Url.Action("viewDoctorAppointmentDetails", "ViewDoctorAppointmentDetails")' class="btn btn-primary"> Checkup Appointments Approve / Reject</a><br />
+    <a href='@Url.Action("ListPatientIds", "AdminLogin")' class="btn btn-primary">Update Test Result</a><br />
+</div>
+
+
+</body>
+</html>

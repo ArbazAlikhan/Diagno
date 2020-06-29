@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "viewAgentId";
+}
+
+@using (Html.BeginForm())
+{
+<div class="center">
+    <h3 style="color:darkblue;">Available Agents</h3>
+    <table class="table" style="margin-top:30px;margin-bottom:30px;width:40%">
+        <thead>
+            <tr>
+                <th>Agent Id</th>
+                <th>Name</th>
+
+
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            string id = item.AgentId.ToString();
+            <tbody>
+                <tr>
+                    <td><h3>@Html.ActionLink(id, "ListAgents", "PatientLogin", new { agenId = item.AgentId }, null)</h3></td>
+                    <td>@item.FirstName</td>
+
+                </tr>
+            </tbody>
+        }
+
+    </table>
+    <h4 style="color:red">* click on Agent Id to know more about them</h4>
+</div>
+
+}
+<div>
+    <button class="btn btn-primary" onclick="location.href='@Url.Action("Login","PatientLogin")'">Back</button>
+</div>

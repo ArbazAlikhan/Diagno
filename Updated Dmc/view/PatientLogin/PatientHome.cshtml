@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "PatientHome";
+}
+    <div class="alert alert-info">
+        <center><strong><q>Treat the patient as whole, not just the hole in the patient </q></strong></center>
+    </div>
+
+<h2 style="color:darkblue;text-align:center">Welcome Patient</h2>
+@using (Html.BeginForm())
+{
+    if (Session["UserId"] != null)
+    {
+        <h5 style="color:green;text-align:center">@ViewBag.ValidationMessage</h5>
+
+    } 
+}
+
+<div class="btn-group-vertical" style="width:400px;padding-top:50px;">
+    <a href='@Url.Action("viewMedicareServicesId", "PatientLogin")' class="btn btn-primary">View Medicare Services</a><br />
+    <a href='@Url.Action("viewDoctorId", "PatientLogin")' class="btn btn-primary">View Doctors</a><br />
+    <a href='@Url.Action("viewAgentId", "PatientLogin")' class="btn btn-primary">View Agents</a><br />
+    <a href='@Url.Action("AppointmentForm", "BookAppointment")' class="btn btn-primary">Book Doctor Appointment</a><br />
+    <a href='@Url.Action("viewAppointment", "PatientLogin")' class="btn btn-primary">View Doctor Appointment</a><br />
+    <a href='@Url.Action("ListPatientIds", "DoctorLogin")' class="btn btn-primary">View Test Result</a><br />
+</div> 

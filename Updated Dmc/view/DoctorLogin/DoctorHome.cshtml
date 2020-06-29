@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "DoctorHome";
+}
+<html>
+<head>
+    <style>
+        body {
+            background-color: #E3afbc;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="alert alert-info">
+        <center><strong><q>Wherever the art of Medicine is loved, there is also a love of Humanity. </q></strong> - Hippocrates</center>
+    </div>
+
+    <h2 style="color:darkblue;text-align:center">Welcome Doctor</h2>
+    @using (Html.BeginForm())
+    {
+        if (Session["UserId"] != null)
+        {
+            <h5 style="color:green;text-align:center">@ViewBag.ValidationMessage</h5>
+
+        }
+
+        <div class="btn-group-vertical" style="width:400px;padding-top:50px;">
+            <a href='@Url.Action("MedicareServicesForm", "MedicareServices")' class="btn btn-primary">Add / Update Medicare Services</a><br />
+            <a href='@Url.Action("viewDoctorAppointmentDetails", "ViewDoctorAppointmentDetails")' class="btn btn-primary">View Checkup Appointments</a><br />
+            <a href='@Url.Action("ListPatientIds", "DoctorLogin")' class="btn btn-primary">View Test Result</a><br />
+        </div>
+    }
+</body>
+</html>

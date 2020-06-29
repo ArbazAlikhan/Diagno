@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "ListAppointments";
+}
+
+<h3 style="color:darkblue;text-align:center">Appointment Details</h3>
+<table class="table" style="margin-top:30px;">
+    <thead>
+        <tr>
+            <th>Appointment Id</th>
+            <th>Doctor Name</th>
+            <th>Medicare Service</th>
+            <th>SelectDate </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@ViewBag.AppointmentId</td>
+            <td>@ViewBag.DoctorName</td>
+            <td>@ViewBag.MedicareService</td>
+            <td>@ViewBag.selectDate</td>
+           
+        </tr>
+    </tbody>
+
+
+</table>

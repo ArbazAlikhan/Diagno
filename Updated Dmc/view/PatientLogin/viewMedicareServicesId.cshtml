@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "viewMedicalServiceId";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="center">
+        <h3 style="color:darkblue;">Medicare Services Available</h3>
+        <table class="table" style="margin-top:30px;margin-bottom:30px;width:50%">
+            <thead>
+                <tr>
+                    <th>Medicare Id</th>
+                    <th>Medicare Service Name</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                string id = item.MedicareId.ToString();
+                <tbody>
+                    <tr>
+                        <td><h3>@Html.ActionLink(id, "ListMedicareServices", "PatientLogin", new { serviceId = item.MedicareId }, null)</h3></td>
+                        <td>@item.MedicareServiceName</td>
+                    </tr>
+                </tbody>
+            }
+
+        </table>
+        <h4 style="color:red">* Click on the Medicare Id to know More</h4>
+    </div>
+}
+
+<div>
+    <button class="btn btn-primary" onclick="location.href='@Url.Action("Login","PatientLogin")'">Back</button>
+</div>

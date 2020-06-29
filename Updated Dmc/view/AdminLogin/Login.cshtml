@@ -1,0 +1,80 @@
+﻿@model DiagnosticMedicalCenter.Models.Admin
+@{
+    ViewBag.Title = "Admin Login";
+}
+<html>
+<head>
+    @Styles.Render("~/Content/StyleSheet.css")
+    <style>
+        
+        body {
+            background-color: #222D32;
+            
+        }
+        .label {
+            color: white;
+            font-size: large;
+            margin-bottom: 5px;
+        }
+        #userId {
+            background-color: #222D32;
+            border: 1px solid #222D32;
+            border-bottom: 2px solid #0DB8DE;
+            color: white;
+            border-radius:10px;
+        }
+        #password {
+            background-color: #222D32;
+            border: 5px solid #222D32;
+            border-bottom: 2px solid #0DB8DE;
+            color: white;
+            border-radius: 10px;
+        }
+        .btn {
+            background-color: #222D32;
+            color: #0DB8DE;
+            border: 2px solid #0DB8DE;
+            border-radius: 20px;
+            padding:10px 30px;
+        }
+            .btn:hover {
+                box-shadow: 4px 4px #0DB8DE;               
+                transition: .3s;
+                color:white;
+            }
+       
+        #Submit{
+            margin-top:10px;
+            margin-right:10px;
+        }
+        .text-danger{
+            color:orangered;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="center">
+         <h2 style="margin-top:80px;color:whitesmoke;"><span class="glyphicon glyphicon-log-in" style="color:whitesmoke">  </span> Admin Login</h2>
+        @using (Html.BeginForm("Login", "AdminLogin", FormMethod.Post))
+        {
+            <div style="margin-top:40px;">
+                <div class="form-group">
+                    <span class="glyphicon glyphicon-user" style="color:white"></span>  @Html.Label("User Id", new { @class = "label" })
+                    @Html.TextBox("UserId", null, new { @class = "form-control", id = "userId" })
+                </div>
+                <div class="form-group">
+                    <span class="glyphicon glyphicon-send" style="color:white"></span> @Html.Label("Password", new { @class = "label" })
+                    @Html.Password("Password", null, new { @class = "form-control", id = "password" })
+                </div>
+                <div style="margin-bottom:30px;margin-top:20px;">
+                    <button class="btn btn-lg" type="submit" id="Submit">Submit</button>
+                    <button class="btn btn-lg" type="reset" id="Submit">Reset</button>
+                </div>
+            </div>
+        }
+        <h4 class="text-danger">@ViewBag.ValidationMessage</h4>
+    </div>
+   
+</body>
+</html>

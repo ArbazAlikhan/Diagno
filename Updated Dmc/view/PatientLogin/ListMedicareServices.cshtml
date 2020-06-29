@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "ListMedicareServices";
+}
+       
+        <h3 style="text-align:center;color:darkblue;">Details of Medicare Service</h3>
+        <table class="table" style="margin-top:50px; width:100%">
+            <thead>
+                <tr>
+                    <th>Medicare Id</th>
+                    <th>Doctor Id</th>
+                    <th>Medicare Service Name</th>
+                    <th>Eligibility</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@ViewBag.MedicareServiceId</td>
+                    <td>@ViewBag.DoctorId</td>
+                    <td>@ViewBag.MedicareServiceName</td>
+                    <td>@ViewBag.Eligibility</td>
+                </tr>
+            </tbody>
+
+
+        </table>
+   

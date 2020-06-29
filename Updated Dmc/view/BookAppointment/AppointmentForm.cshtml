@@ -1,0 +1,77 @@
+﻿@model DiagnosticMedicalCenter.Models.BookAppointment
+@{
+    ViewBag.Title = "AppointmentForm";
+}
+
+<html>
+<head>
+    @Styles.Render("~/Content/StyleSheet.css")
+</head>
+<body>
+    <div class="center">
+        <h3 style="margin-top:50px;margin-bottom:20px;color:darkblue">Doctor Appointment Form</h3>
+        @using (Html.BeginForm("AppointmentForm", "BookAppointment", FormMethod.Post))
+        {
+
+
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.DoctorName)
+                @Html.TextBoxFor(m => m.DoctorName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.DoctorName, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.DoctorId)
+                @Html.TextBoxFor(m => m.DoctorId, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.DoctorId, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.PatientId)
+                @Html.TextBoxFor(m => m.PatientId, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.PatientId, "", new { @class = "text-danger" })
+            </div>
+
+
+
+
+            <div class="form-inline">
+                @Html.LabelFor(m => m.MedicareService) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&emsp;&emsp;
+                &nbsp;&nbsp;@Html.RadioButtonFor(m => m.MedicareService, "ECG", new { @class = "form-control" })&nbsp;&nbsp;ECG
+                &emsp;&emsp;&emsp; &nbsp;&nbsp; @Html.RadioButtonFor(m => m.MedicareService, "Electrolytes", new { @class = "form-control" })&nbsp;&nbsp;Electrolytes
+                <br />&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                &nbsp;&nbsp;@Html.RadioButtonFor(m => m.MedicareService, "Lipid Profile", new { @class = "form-control" })&nbsp;&nbsp;Lipid Profile
+                &nbsp;&nbsp; @Html.RadioButtonFor(m => m.MedicareService, "Creatinine", new { @class = "form-control" })&nbsp;&nbsp;Creatinine
+                <br />
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.SelectDate)
+                @Html.TextBoxFor(m => m.SelectDate, new { @class = "form-control", placeholder = "yyyy/mm/dd hh:mm" })
+                @Html.ValidationMessageFor(m => m.SelectDate, "", new { @class = "text-danger" })
+            </div>
+
+
+
+            <div style="margin-bottom:30px;">
+                <br />
+                <button class="btn btn-primary" type="submit">Update</button>
+                <button class="btn btn-primary" type="reset">Reset</button>
+            </div>
+
+        }
+
+
+
+        <h4 class="text-danger">@ViewBag.ValidationMessage</h4>
+    </div>
+    <div>
+        <button class="btn btn-primary btn-sm" onclick="location.href='@Url.Action("Login","PatientLogin")'">Back</button>
+    </div>
+</body>
+</html>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
